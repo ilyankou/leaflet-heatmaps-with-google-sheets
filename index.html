@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes">
+
+<html>
+<head>
+  <title>Loading the map...</title>
+
+  <!-- Leaflet and jQuery-->
+  <link rel="stylesheet" href="scripts/leaflet/leaflet.css" />
+  <!--[if lte IE 8]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+  <![endif]-->
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+    integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+    crossorigin="anonymous"></script>
+
+  <script src="scripts/leaflet/leaflet.js"></script>
+
+  <!-- leaflet-providers -->
+  <script src="scripts/leaflet-providers/leaflet-providers.js"></script>
+
+  <!-- leaflet-heat -->
+  <script type="text/javascript" src="scripts/leaflet-heat.js"></script>
+
+  <!-- Tabletop (gives spreadsheets legs) -->
+  <script src="scripts/tabletop.js"></script>
+
+  <!-- Font Awesome -->
+  <!--
+  <script src="https://use.fontawesome.com/a36da20aef.js"></script> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  <!-- Leaflet.awesome-markers -->
+  <link rel="stylesheet" type="text/css" href="scripts/Leaflet.awesome-markers/leaflet.awesome-markers.css">
+  <script type="text/javascript" src="scripts/Leaflet.awesome-markers/leaflet.awesome-markers.min.js"></script>
+
+  <!-- Markercluster -->
+  <link rel="stylesheet" href="scripts/Leaflet.markercluster/MarkerCluster.css">
+  <link rel="stylesheet" href="scripts/Leaflet.markercluster/MarkerCluster.Default.css">
+  <script type="text/javascript" src="scripts/Leaflet.markercluster/leaflet.markercluster.js"></script>
+
+  <!-- Mapzen Search -->
+  <link rel="stylesheet" href="scripts/leaflet-geocoder/leaflet-geocoder-mapzen.css">
+  <script src="scripts/leaflet-geocoder/leaflet-geocoder-mapzen.js"></script>
+
+  <!-- Locate Control -->
+  <link rel="stylesheet" href="scripts/leaflet-locatecontrol/L.Control.Locate.min.css">
+  <script src="scripts/leaflet-locatecontrol/L.Control.Locate.min.js"></script>
+
+  <!-- Custom style sheet -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="loader">Loading...</div>
+  <div id="map"></div>
+
+  <script type="text/javascript">
+    var map = L.map('map', {
+      attributionControl: false,
+      zoomControl: false,
+      scrollWheelZoom: false
+    }).setView([41.76,-72.69], 11); // default center is overridden by Google Sheet options and points
+  </script>
+
+  <script type="text/javascript" src="google-doc-url.js"></script>
+  <script type="text/javascript" src="scripts/constants.js"></script>
+  <script type="text/javascript" src="scripts/palette.js"></script>
+  <script type="text/javascript" src="scripts/polylabel.js"></script>
+  <script type="text/javascript" src="scripts/jquery.csv.js"></script>
+  <script type="text/javascript" src="scripts/procsv.js"></script>
+  <script type="text/javascript" src="scripts/map.js"></script>
+
+</body>
+</html>
