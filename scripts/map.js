@@ -19,7 +19,7 @@ $(window).on('load', function() {
       max: parseFloat(trySetting('_maxPointIntensity', 1)),
       radius: parseInt(trySetting('_pointRadius', 10)),
       blur: parseInt(trySetting('_blur', 15)),
-      gradient: {0.4: 'blue', 0.65: 'lime', 1: 'red'}
+      gradient: eval('(' + getSetting('_gradient') + ')')
     }).addTo(map);
 
 
