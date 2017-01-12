@@ -5,12 +5,10 @@ $(window).on('load', function() {
     var latlngs = [];
 
     for (i in points) {
-      p = points[i];
-      latlngs.push(new Array(
-        parseFloat(p['Latitude']),
-        parseFloat(p['Longitude']),
-        parseFloat(p['Intensity'])
-      ));
+      lat = points[i]['Latitude'];
+      lon = points[i]['Longitude'];
+      alt = points[i]['Intensity'];
+      latlngs.push([lat, lon, alt]);
     }
 
     var heat = L.heatLayer(latlngs, {
@@ -23,25 +21,26 @@ $(window).on('load', function() {
     }).addTo(map);
 
 
-    var mapCenter = L.latLng();
-    var mapZoom = 10;
+    var mapCenter;
+    var mapZoom;
 
-    // center and zoom map based on points or to user-specified zoom and center
+    // Center and zoom map based on points or to user-specified zoom and center
     if (getSetting('_initLat') !== '' && getSetting('_initLon') !== '') {
       mapCenter = L.latLng(getSetting('_initLat'), getSetting('_initLon'));
-      map.setView(mapCenter);
+      map.setView(mapCenter, 10);
     } else {
-      /*
-      var groupBounds = points.getBounds();
-      mapZoom = map.getBoundsZoom(groupBounds);
-      mapCenter = groupBounds.getCenter(); */
+      var markers = [];
+      for (i in points) {
+        markers.push(new L.marker([points[i]['Latitude'], points[i]['Longitude']]));
+      }
+      var group = new L.featureGroup(markers);
+      map.fitBounds(group.getBounds());
     }
 
     if (getSetting('_initZoom') !== '') {
-      mapZoom = parseInt(getSetting('_initZoom'));
+      map.setZoom(getSetting('_initZoom'));
     }
 
-    //map.setView(mapCenter, mapZoom);
   }
 
   /**
