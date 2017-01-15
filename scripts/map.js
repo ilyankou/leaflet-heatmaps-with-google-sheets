@@ -13,7 +13,7 @@ $(window).on('load', function() {
 
     var heat = L.heatLayer(latlngs, {
       minOpacity: parseFloat(trySetting('_minOpacity', 0.5)),
-      maxZoom: parseInt(trySetting('_maxZoom', 10)),
+      //maxZoom: parseInt(trySetting('_maxZoom', 10)),
       max: parseFloat(trySetting('_maxPointIntensity', 1)),
       radius: parseInt(trySetting('_pointRadius', 10)),
       blur: parseInt(trySetting('_blur', 15)),
@@ -219,7 +219,7 @@ $(window).on('load', function() {
          mapData = Procsv;
          mapData.load({
            self: mapData,
-           tabs: ['Options', 'Points', 'Polygons', 'Polylines'],
+           tabs: ['Options', 'Points'],
            callback: onMapDataLoad
          });
        }
